@@ -22,6 +22,7 @@
 		<sonar.login>admin</sonar.login>
 		<sonar.password>admin</sonar.password>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<nexus.server.url>http://http://34.213.46.32:8081</nexus.server.url>
 	</properties>
 
 	<dependencies>
@@ -34,7 +35,21 @@
 		</dependency>
 
 	</dependencies>
-
+<distributionManagement>
+	
+	    <repository>
+	      <id>nexus</id>
+	      <name>Mithun Technologies Releases Nexus Repository</name>
+	      <url>${nexus.server.url}/repository/param-release/</url>
+	    </repository>
+	    
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>Mithun Technologies Snapshot Nexus Repository </name>
+	      <url>${nexus.server.url}/repository/param-snapshot/</url>
+	    </snapshotRepository>
+	    
+	</distributionManagement>
 	<!-- Committing and updating changes through Maven, by using below mvn command. 
 		For Commiting mvn -Dmessage="Updated using maven" scm:checkin For updating 
 		mvn scm:update -->
